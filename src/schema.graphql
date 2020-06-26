@@ -1,0 +1,27 @@
+        type Query{
+            test:String!
+            listarIngredientes(nombre:String!,descripcion:String!):[Ingrediente!]
+            listarReceta(titulo:String!,descripcion1:String!):Receta!
+            listarRecetaEspecifica(id:ID!,titulo:String!,descripcion1:String!):Receta!
+            listarRecetaIngrediente(id:ID!,titulo:String!,descripcion1:String!,listaIngredientes:[Ingrediente!]!):Receta!
+        }
+        type Mutation{
+            addIngrediente(nombre:String!, descripcion:String!):Ingrediente!
+            addReceta(titulo:String!, descripcion1:String!,pasos:[Pasos!]!,listaIngredientes:[Ingrediente!]!):Receta!
+        }
+        type Ingrediente{
+            nombre:String!
+            descripcion:String!
+        }
+        type Receta{
+            id:ID!
+            titulo:String!
+            descripcion1:String!
+            pasos:[Pasos!]!
+            listaIngredientes:[Ingrediente!]!
+        }
+        type Pasos{
+            paso:Int!
+            descripcion:String!
+            imagen:String!
+        }
